@@ -12,31 +12,44 @@
       --card-bg: #ffffff;
       --texto: #333;
     }
+    *{box-sizing:border-box;}
+    body{ margin:0; font-family:"Segoe UI", Tahoma, Geneva, Verdana, sans-serif; background:var(--fundo); color:var(--texto); }
 
-    *{box-sizing: border-box;}
-
-    body{
-      margin:0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--fundo);
-      color: var(--texto);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-
-    /* Topo */
+    /* cabeçalho */
     header.site-header{
-      background: var(--azul);
-      padding: 16px 24px;
+      background:var(--azul);
+      padding:16px 24px;
       display:flex;
       align-items:center;
       gap:16px;
     }
-    header.site-header img.logo{
-      height:60px;
+    .logo-wrap{
+      width: auto;
+      height: 60px;
+      display:flex;
+      align-items:center;
+    }
+    img.logo{
+      height:100%;
       width:auto;
       display:block;
+      object-fit:contain;
+      border-radius:4px;
     }
+    /* fallback text (quando imagem não carregar) */
+    .logo-fallback{
+      display:none; /* ativado via JS se necessário */
+      height:100%;
+      padding:8px 12px;
+      background:var(--dourado);
+      color:var(--azul);
+      font-weight:700;
+      border-radius:6px;
+      align-items:center;
+      justify-content:center;
+      font-size:1rem;
+    }
+
     header.site-header h1{
       margin:0;
       font-size:20px;
@@ -44,154 +57,54 @@
       letter-spacing:0.2px;
     }
 
-    /* Hero / Conteúdo */
-    .container{
-      max-width:1100px;
-      margin: 28px auto;
-      padding: 0 20px;
-    }
+    /* resto do layout (resumido) */
+    .container{ max-width:1100px; margin:28px auto; padding:0 20px; }
+    .hero{ background:var(--card-bg); border-radius:12px; padding:32px; box-shadow:0 8px 24px rgba(0,0,0,0.06); }
+    .lead{ color:var(--azul); font-size:1.25rem; margin:0 0 12px 0; font-weight:600; }
+    .card{ background:var(--card-bg); border-radius:12px; padding:20px; margin-top:20px; box-shadow:0 6px 20px rgba(0,0,0,0.05); }
+    .parceiros ul{ list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:10px; }
+    .parceiros li{ background:#f3f3f3; padding:8px 12px; border-radius:8px; color:var(--azul); font-weight:600; border:1px solid #e6e6e6; }
+    .formulario form{ display:flex; flex-direction:column; gap:12px; max-width:680px; }
+    input, textarea{ padding:12px; border:1px solid #d0d0d0; border-radius:8px; font-size:16px; width:100%; background:white; }
+    input:focus, textarea:focus{ border-color:var(--dourado); box-shadow:0 0 0 4px rgba(212,175,55,0.12); outline:none; }
+    .cta{ text-align:center; margin-top:26px; padding:28px; border-radius:12px; background:linear-gradient(180deg,rgba(0,46,91,0.98),rgba(0,46,91,0.95)); color:white; }
+    .cta-btn{ background:var(--dourado); color:var(--azul); border:none; padding:12px 20px; border-radius:999px; font-weight:700; cursor:pointer; margin-top:12px; }
 
-    .hero{
-      background: var(--card-bg);
-      border-radius:12px;
-      padding:32px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-      display:block;
-    }
+    footer{ background:var(--azul); color:white; padding:18px 10px; text-align:center; margin-top:36px; font-size:14px; }
 
-    .hero .lead{
-      color:var(--azul);
-      font-size:1.25rem;
-      margin:0 0 12px 0;
-      font-weight:600;
-    }
-    .hero p{margin:0 0 8px 0; line-height:1.6;}
-
-    /* Seções */
-    .card{
-      background: var(--card-bg);
-      border-radius:12px;
-      padding:20px;
-      margin-top:20px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-    }
-
-    .parceiros ul{
-      list-style:none;
-      padding:0;
-      margin:0;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-    .parceiros li{
-      background:#f3f3f3;
-      padding:8px 12px;
-      border-radius:8px;
-      color:var(--azul);
-      font-weight:600;
-      border:1px solid #e6e6e6;
-    }
-
-    .faq p{margin:12px 0;}
-    .faq strong{color:var(--azul);}
-
-    /* Formulário */
-    .formulario form{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      max-width:680px;
-    }
-    input[type="text"], input[type="email"], input[type="tel"], textarea{
-      padding:12px;
-      border:1px solid #d0d0d0;
-      border-radius:8px;
-      font-size:16px;
-      width:100%;
-      background: white;
-    }
-    input:focus, textarea:focus{
-      border-color: var(--dourado);
-      outline: none;
-      box-shadow: 0 0 0 4px rgba(212,175,55,0.12);
-    }
-    .formulario button[type="submit"]{
-      background: var(--azul);
-      color: white;
-      padding:12px 18px;
-      border: none;
-      border-radius:8px;
-      cursor:pointer;
-      font-weight:600;
-      width:fit-content;
-    }
-    .formulario button[type="submit"]:hover{
-      background:#01407e;
-    }
-
-    /* CTA */
-    .cta{
-      text-align:center;
-      margin-top:26px;
-      padding:28px;
-      border-radius:12px;
-      background: linear-gradient(180deg, rgba(0,46,91,0.98), rgba(0,46,91,0.95));
-      color:white;
-    }
-    .cta .cta-btn{
-      background: var(--dourado);
-      color: var(--azul);
-      border:none;
-      padding:12px 20px;
-      border-radius:999px;
-      font-weight:700;
-      cursor:pointer;
-      margin-top:12px;
-    }
-    .cta .cta-btn:hover{ filter:brightness(.95); transform: translateY(-2px); }
-
-    /* Rodapé */
-    footer{ 
-      background:var(--azul);
-      color:white;
-      padding:18px 10px;
-      text-align:center;
-      margin-top:36px;
-      font-size:14px;
-    }
-
-    /* Responsivo */
     @media (max-width:700px){
       header.site-header{ padding:12px; }
       header.site-header h1{ font-size:18px; }
-      .hero{ padding:20px; }
-      .cta{ padding:20px; }
       header.site-header img.logo{ height:48px; }
     }
   </style>
 </head>
 <body>
-  <!-- Cabeçalho com logo à esquerda; coloque o arquivo logo-ewd.jpg na mesma pasta -->
   <header class="site-header" role="banner">
-    <img class="logo" src="logo-ewd.jpg" alt="EWD Investimentos - logo" />
+    <div class="logo-wrap" id="logoWrap">
+      <!-- Imagem principal; se falhar, onerror troca para data URI SVG (fallback visual) -->
+      <img
+        class="logo"
+        id="logoImg"
+        src="logo-ewd.jpg"
+        alt="Logo EWD Investimentos"
+        onerror="handleLogoError(this)"
+      />
+      <div class="logo-fallback" id="logoFallback" aria-hidden="true">EWD Investimentos</div>
+    </div>
     <h1>EWD Investimentos</h1>
   </header>
 
   <main class="container" role="main">
     <section class="hero" aria-label="Apresentação">
       <p class="lead">O modelo de gestão de patrimônio mais bem-sucedido no mundo, agora disponível para você.</p>
-      <p>Na <strong>EWD Investimentos</strong>, oferecemos uma abordagem personalizada para atender aos seus objetivos financeiros, com transparência e alinhamento total aos seus interesses. Soluções sob medida — foco em preservação e crescimento de patrimônio.</p>
+      <p>Na <strong>EWD Investimentos</strong>, oferecemos uma abordagem personalizada para atender aos seus objetivos financeiros, com transparência e alinhamento total aos seus interesses.</p>
     </section>
 
     <section class="card parceiros" aria-label="Parceiros">
       <h2 style="margin-top:0;color:#002e5b;">Parceiros</h2>
       <ul>
-        <li>BTG Pactual</li>
-        <li>XP Investimentos</li>
-        <li>Warren</li>
-        <li>Avenue</li>
-        <li>Interactive Brokers</li>
+        <li>BTG Pactual</li><li>XP Investimentos</li><li>Warren</li><li>Avenue</li><li>Interactive Brokers</li>
       </ul>
     </section>
 
@@ -204,8 +117,7 @@
 
     <section class="card formulario" aria-label="Formulário de contato">
       <h2 style="margin-top:0;color:#002e5b;">Agende sua Consultoria</h2>
-      <p>Preencha o formulário abaixo e entraremos em contato para agendar uma reunião personalizada.</p>
-      <form action="https://formspree.io/f/xgvkgdzw" method="POST" novalidate>
+      <form action="https://formspree.io/f/xgvkgdzw" method="POST" class="formulario" novalidate>
         <input type="text" name="nome" placeholder="Seu nome completo" required />
         <input type="email" name="email" placeholder="Seu e-mail" required />
         <input type="tel" name="telefone" placeholder="Seu telefone" required />
@@ -217,7 +129,7 @@
     <section class="cta" aria-label="Chamada para ação">
       <h2 style="margin:0;font-size:1.15rem;">Pronto para transformar a gestão do seu patrimônio?</h2>
       <p style="opacity:.95;margin:8px 0 0;">Agende uma consultoria gratuita e descubra o poder de uma gestão realmente personalizada.</p>
-      <button class="cta-btn" onclick="document.querySelector('.formulario form').scrollIntoView({behavior:'smooth'});">Agendar Consultoria</button>
+      <button class="cta-btn" onclick="document.querySelector('.formulario form')?.scrollIntoView({behavior:'smooth'});">Agendar Consultoria</button>
     </section>
   </main>
 
@@ -225,5 +137,24 @@
     <div>&copy; 2025 EWD Investimentos. Todos os direitos reservados.</div>
     <div style="opacity:.9;margin-top:6px;">Política de Privacidade | Termos de Uso | Contato: ewdparticipacoes@hotmail.com</div>
   </footer>
+
+  <script>
+    // Se a logo não carregar, substitui por um data-uri SVG (visual simples) e mostra fallback textual
+    function handleLogoError(imgEl){
+      console.warn("Logo não carregou a partir de:", imgEl.src);
+      // data-uri SVG simples (dourado fundo branco texto azul)
+      const svg = encodeURIComponent(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="80"><rect width="100%" height="100%" fill="%23d4af37"/><text x="16" y="50" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="28" fill="%23002e5b">EWD Investimentos</text></svg>'
+      );
+      imgEl.src = 'data:image/svg+xml;charset=utf-8,' + svg;
+      imgEl.alt = "EWD Investimentos - logo (fallback)";
+      // mostrar logo textual também (caso queira)
+      const fallback = document.getElementById('logoFallback');
+      if(fallback) fallback.style.display = 'flex';
+    }
+
+    // Diagnóstico rápido: logue o caminho atual
+    console.log("Caminho da imagem de logo atual:", document.getElementById('logoImg')?.src || "não encontrado element#logoImg");
+  </script>
 </body>
 </html>
