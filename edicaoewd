@@ -31,20 +31,33 @@
       background-position: center;
     }
 
-    /* LOGO */
+    /* LOGO (SVG embutido) */
     .logo {
       position: absolute;
-      top: 20px;
-      left: 40px;
+      top: 18px;
+      left: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    .logo img {
-      height: 70px;
+    /* ajusta o tamanho do svg (círculo + texto) */
+    .logo svg {
+      height: 72px;
       width: auto;
-      border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.15);
-      padding: 8px;
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+      display: block;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.25));
+      border-radius: 8px;
+      background: rgba(255,255,255,0.02);
+      padding: 6px;
+    }
+
+    /* se quiser um fallback textual junto ao svg (opcional) */
+    .logo .brand {
+      display: none; /* mantemos oculto para não poluir o header */
+      color: var(--dourado);
+      font-weight: 700;
+      font-size: 1rem;
     }
 
     header h1 {
@@ -196,21 +209,25 @@
     @media (max-width: 768px) {
       header h1 { font-size: 2.2rem; }
       .parceiros ul { flex-direction: column; align-items: center; }
-      .logo {
-        top: 15px;
-        left: 15px;
-      }
-      .logo img {
-        height: 55px;
-      }
+      .logo { top: 12px; left: 12px; }
+      .logo svg { height: 56px; }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">
-      <img src="Screenshot_20251108_164219_WhatsApp.jpg" alt="Logo EWD Investimentos" />
+    <!-- LOGO SVG embutida: círculo dourado + texto "EWD Investimentos" dourado -->
+    <div class="logo" aria-hidden="false" role="img" aria-label="Logomarca EWD Investimentos">
+      <svg viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="false" role="img">
+        <!-- circulo -->
+        <circle cx="60" cy="60" r="54" stroke="#d4af37" stroke-width="8" fill="none" />
+        <!-- EWD em destaque dentro do círculo -->
+        <text x="60" y="70" font-family="Segoe UI, Tahoma, Verdana, sans-serif" font-size="44" font-weight="700" text-anchor="middle" fill="#d4af37">EWD</text>
+        <!-- texto 'Investimentos' à direita do círculo -->
+        <text x="140" y="68" font-family="Segoe UI, Tahoma, Verdana, sans-serif" font-size="20" font-weight="600" fill="#d4af37">Investimentos</text>
+      </svg>
     </div>
+
     <h1>EWD Investimentos</h1>
     <p>Gestão de patrimônio e consultoria financeira com foco em excelência e transparência.</p>
   </header>
