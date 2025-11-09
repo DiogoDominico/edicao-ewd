@@ -20,13 +20,31 @@
     }
 
     header {
+      position: relative;
       background-color: var(--azul);
       color: white;
       text-align: center;
       padding: 5rem 2rem 6rem;
-      background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1508385082359-f38ae991e8f2?auto=format&fit=crop&w=1600&q=80');
+      background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
+        url('https://images.unsplash.com/photo-1508385082359-f38ae991e8f2?auto=format&fit=crop&w=1600&q=80');
       background-size: cover;
       background-position: center;
+    }
+
+    /* LOGO */
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 40px;
+    }
+
+    .logo img {
+      height: 70px;
+      width: auto;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.15);
+      padding: 8px;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
     }
 
     header h1 {
@@ -178,11 +196,21 @@
     @media (max-width: 768px) {
       header h1 { font-size: 2.2rem; }
       .parceiros ul { flex-direction: column; align-items: center; }
+      .logo {
+        top: 15px;
+        left: 15px;
+      }
+      .logo img {
+        height: 55px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
+    <div class="logo">
+      <img src="Screenshot_20251108_164219_WhatsApp.jpg" alt="Logo EWD Investimentos" />
+    </div>
     <h1>EWD Investimentos</h1>
     <p>Gestão de patrimônio e consultoria financeira com foco em excelência e transparência.</p>
   </header>
