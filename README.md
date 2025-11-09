@@ -20,7 +20,6 @@
     }
 
     header {
-      position: relative;
       background-color: var(--azul);
       color: white;
       text-align: center;
@@ -29,21 +28,6 @@
         url('https://images.unsplash.com/photo-1508385082359-f38ae991e8f2?auto=format&fit=crop&w=1600&q=80');
       background-size: cover;
       background-position: center;
-    }
-
-    /* LOGO */
-    .logo {
-      position: absolute;
-      top: 18px;
-      left: 28px;
-      display: flex;
-      align-items: center;
-    }
-
-    .logo svg {
-      height: 90px;
-      width: 90px;
-      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.25));
     }
 
     header h1 {
@@ -195,22 +179,11 @@
     @media (max-width: 768px) {
       header h1 { font-size: 2.2rem; }
       .parceiros ul { flex-direction: column; align-items: center; }
-      .logo { top: 12px; left: 12px; }
-      .logo svg { height: 70px; width: 70px; }
     }
   </style>
 </head>
 <body>
   <header>
-    <!-- LOGO CORRIGIDA: círculo dourado com "EWD Investimentos" DENTRO -->
-    <div class="logo" aria-hidden="false" role="img" aria-label="Logomarca EWD Investimentos">
-      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="60" cy="60" r="54" stroke="#d4af37" stroke-width="6" fill="none"/>
-        <text x="60" y="66" font-family="Segoe UI, Tahoma, Verdana, sans-serif"
-              font-size="14" text-anchor="middle" fill="#d4af37" font-weight="700">EWD Investimentos</text>
-      </svg>
-    </div>
-
     <h1>EWD Investimentos</h1>
     <p>Gestão de patrimônio e consultoria financeira com foco em excelência e transparência.</p>
   </header>
