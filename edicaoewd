@@ -31,7 +31,7 @@
       background-position: center;
     }
 
-    /* LOGO (SVG embutido) */
+    /* LOGO (SVG embutido corrigido: EWD Investimentos) */
     .logo {
       position: absolute;
       top: 18px;
@@ -41,7 +41,6 @@
       gap: 12px;
     }
 
-    /* ajusta o tamanho do svg (círculo + texto) */
     .logo svg {
       height: 72px;
       width: auto;
@@ -50,14 +49,6 @@
       border-radius: 8px;
       background: rgba(255,255,255,0.02);
       padding: 6px;
-    }
-
-    /* se quiser um fallback textual junto ao svg (opcional) */
-    .logo .brand {
-      display: none; /* mantemos oculto para não poluir o header */
-      color: var(--dourado);
-      font-weight: 700;
-      font-size: 1rem;
     }
 
     header h1 {
@@ -216,15 +207,15 @@
 </head>
 <body>
   <header>
-    <!-- LOGO SVG embutida: círculo dourado + texto "EWD Investimentos" dourado -->
+    <!-- LOGO SVG embutida corrigida: círculo dourado + "EWD" + "Investimentos" -->
     <div class="logo" aria-hidden="false" role="img" aria-label="Logomarca EWD Investimentos">
-      <svg viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="false" role="img">
-        <!-- circulo -->
+      <svg viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="false" role="img">
+        <!-- círculo -->
         <circle cx="60" cy="60" r="54" stroke="#d4af37" stroke-width="8" fill="none" />
-        <!-- EWD em destaque dentro do círculo -->
-        <text x="60" y="70" font-family="Segoe UI, Tahoma, Verdana, sans-serif" font-size="44" font-weight="700" text-anchor="middle" fill="#d4af37">EWD</text>
-        <!-- texto 'Investimentos' à direita do círculo -->
-        <text x="140" y="68" font-family="Segoe UI, Tahoma, Verdana, sans-serif" font-size="20" font-weight="600" fill="#d4af37">Investimentos</text>
+        <!-- EWD centralizado dentro do círculo -->
+        <text x="60" y="68" font-family="Segoe UI, Tahoma, Verdana, sans-serif" font-size="42" font-weight="800" text-anchor="middle" fill="#d4af37">EWD</text>
+        <!-- Texto Investimentos ao lado direito, corretamente escrito -->
+        <text x="160" y="70" font-family="Segoe UI, Tahoma, Verdana, sans-serif" font-size="20" font-weight="700" fill="#d4af37">EWD Investimentos</text>
       </svg>
     </div>
 
