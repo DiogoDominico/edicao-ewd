@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EWD Investimentos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -17,11 +18,11 @@
       align-items: center;
       padding: 20px 60px;
       background-color: #001a33;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     }
 
     header img {
-      height: 60px;
+      height: 70px;
       width: auto;
     }
 
@@ -68,5 +69,15 @@
 <body>
 
   <header>
-    <!-- Logomarca incorporada -->
-    <img src="dat
+    <!-- Logomarca oficial -->
+    <img src="Screenshot_20251108_164219_WhatsApp.jpg" alt="Logo EWD Investimentos">
+  </header>
+
+  <main>
+    <h1>Gestão de Patrimônio com Excelência</h1>
+    <p>Consultoria financeira personalizada e transparente, para quem busca segurança e performance no longo prazo.</p>
+    <a href="#" class="btn">Agende sua consultoria</a>
+  </main>
+
+</body>
+</html>
