@@ -25,30 +25,25 @@
       color: white;
       text-align: center;
       padding: 5rem 2rem 6rem;
-      background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
+      background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)),
         url('https://images.unsplash.com/photo-1508385082359-f38ae991e8f2?auto=format&fit=crop&w=1600&q=80');
       background-size: cover;
       background-position: center;
     }
 
-    /* LOGO (SVG embutido corrigido: EWD Investimentos) */
+    /* LOGO */
     .logo {
       position: absolute;
       top: 18px;
       left: 28px;
       display: flex;
       align-items: center;
-      gap: 12px;
     }
 
     .logo svg {
-      height: 72px;
-      width: auto;
-      display: block;
-      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.25));
-      border-radius: 8px;
-      background: rgba(255,255,255,0.02);
-      padding: 6px;
+      height: 90px;
+      width: 90px;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.25));
     }
 
     header h1 {
@@ -201,21 +196,18 @@
       header h1 { font-size: 2.2rem; }
       .parceiros ul { flex-direction: column; align-items: center; }
       .logo { top: 12px; left: 12px; }
-      .logo svg { height: 56px; }
+      .logo svg { height: 70px; width: 70px; }
     }
   </style>
 </head>
 <body>
   <header>
-    <!-- LOGO SVG embutida corrigida: círculo dourado + "EWD" + "Investimentos" -->
+    <!-- LOGO CORRIGIDA: círculo dourado com "EWD Investimentos" DENTRO -->
     <div class="logo" aria-hidden="false" role="img" aria-label="Logomarca EWD Investimentos">
-      <svg viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="false" role="img">
-        <!-- círculo -->
-        <circle cx="60" cy="60" r="54" stroke="#d4af37" stroke-width="8" fill="none" />
-        <!-- EWD centralizado dentro do círculo -->
-        <text x="60" y="68" font-family="Segoe UI, Tahoma, Verdana, sans-serif" font-size="42" font-weight="800" text-anchor="middle" fill="#d4af37">EWD</text>
-        <!-- Texto Investimentos ao lado direito, corretamente escrito -->
-        <text x="160" y="70" font-family="Segoe UI, Tahoma, Verdana, sans-serif" font-size="20" font-weight="700" fill="#d4af37">EWD Investimentos</text>
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="60" cy="60" r="54" stroke="#d4af37" stroke-width="6" fill="none"/>
+        <text x="60" y="66" font-family="Segoe UI, Tahoma, Verdana, sans-serif"
+              font-size="14" text-anchor="middle" fill="#d4af37" font-weight="700">EWD Investimentos</text>
       </svg>
     </div>
 
