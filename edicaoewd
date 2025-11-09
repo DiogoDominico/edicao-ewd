@@ -1,251 +1,229 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>EWD Investimentos</title>
   <style>
-    :root {
+    :root{
       --azul: #002e5b;
       --dourado: #d4af37;
-      --cinza-fundo: #f9f9f9;
+      --fundo: #f8f8f8;
+      --card-bg: #ffffff;
+      --texto: #333;
     }
 
-    body {
-      margin: 0;
+    *{box-sizing: border-box;}
+
+    body{
+      margin:0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--cinza-fundo);
-      color: #333;
-      line-height: 1.6;
+      background: var(--fundo);
+      color: var(--texto);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
 
-    header {
-      background-color: var(--azul);
-      color: white;
-      text-align: center;
-      padding: 5rem 2rem 6rem;
-      background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1508385082359-f38ae991e8f2?auto=format&fit=crop&w=1600&q=80');
-      background-size: cover;
-      background-position: center;
+    /* Topo */
+    header.site-header{
+      background: var(--azul);
+      padding: 16px 24px;
+      display:flex;
+      align-items:center;
+      gap:16px;
+    }
+    header.site-header img.logo{
+      height:60px;
+      width:auto;
+      display:block;
+    }
+    header.site-header h1{
+      margin:0;
+      font-size:20px;
+      color:var(--dourado);
+      letter-spacing:0.2px;
     }
 
-    header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
-      letter-spacing: 1px;
+    /* Hero / Conteúdo */
+    .container{
+      max-width:1100px;
+      margin: 28px auto;
+      padding: 0 20px;
     }
 
-    header p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: auto;
-      color: #ddd;
+    .hero{
+      background: var(--card-bg);
+      border-radius:12px;
+      padding:32px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      display:block;
     }
 
-    section {
-      padding: 3rem 2rem;
-      max-width: 1000px;
-      margin: auto;
+    .hero .lead{
+      color:var(--azul);
+      font-size:1.25rem;
+      margin:0 0 12px 0;
+      font-weight:600;
+    }
+    .hero p{margin:0 0 8px 0; line-height:1.6;}
+
+    /* Seções */
+    .card{
+      background: var(--card-bg);
+      border-radius:12px;
+      padding:20px;
+      margin-top:20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
     }
 
-    .destaque {
-      font-size: 1.6rem;
-      color: var(--azul);
-      text-align: center;
-      margin: 2rem 0;
+    .parceiros ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .parceiros li{
+      background:#f3f3f3;
+      padding:8px 12px;
+      border-radius:8px;
+      color:var(--azul);
+      font-weight:600;
+      border:1px solid #e6e6e6;
     }
 
-    .numeros,
-    .parceiros,
-    .faq,
-    .formulario {
+    .faq p{margin:12px 0;}
+    .faq strong{color:var(--azul);}
+
+    /* Formulário */
+    .formulario form{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      max-width:680px;
+    }
+    input[type="text"], input[type="email"], input[type="tel"], textarea{
+      padding:12px;
+      border:1px solid #d0d0d0;
+      border-radius:8px;
+      font-size:16px;
+      width:100%;
       background: white;
-      margin: 2rem 0;
-      padding: 2.5rem;
-      border-radius: 16px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
     }
-
-    .parceiros h2,
-    .faq h2,
-    .formulario h2,
-    .cta h2 {
-      color: var(--azul);
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
-    .parceiros ul {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      list-style: none;
-      padding: 0;
-      gap: 1.5rem;
-    }
-
-    .parceiros li {
-      font-weight: 600;
-      color: var(--azul);
-      background: #f2f2f2;
-      padding: 0.8rem 1.5rem;
-      border-radius: 8px;
-      border: 1px solid #e0e0e0;
-    }
-
-    .faq p {
-      margin-bottom: 1.5rem;
-    }
-
-    .faq strong {
-      color: var(--azul);
-    }
-
-    .cta {
-      text-align: center;
-      background-color: var(--azul);
-      color: white;
-      padding: 3rem 2rem;
-      border-radius: 12px;
-      margin-top: 3rem;
-    }
-
-    .cta button {
-      background-color: var(--dourado);
-      color: var(--azul);
-      font-weight: bold;
-      padding: 1rem 2.5rem;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      margin-top: 1rem;
-    }
-
-    .cta button:hover {
-      background-color: #b9962f;
-      transform: translateY(-2px);
-    }
-
-    .formulario form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 600px;
-      margin: auto;
-    }
-
-    .formulario input,
-    .formulario textarea {
-      padding: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .formulario input:focus,
-    .formulario textarea:focus {
+    input:focus, textarea:focus{
       border-color: var(--dourado);
-      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
       outline: none;
+      box-shadow: 0 0 0 4px rgba(212,175,55,0.12);
     }
-
-    .formulario button {
-      background-color: var(--azul);
+    .formulario button[type="submit"]{
+      background: var(--azul);
       color: white;
-      padding: 1rem;
-      font-size: 1rem;
+      padding:12px 18px;
       border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:600;
+      width:fit-content;
+    }
+    .formulario button[type="submit"]:hover{
+      background:#01407e;
     }
 
-    .formulario button:hover {
-      background-color: #01407e;
+    /* CTA */
+    .cta{
+      text-align:center;
+      margin-top:26px;
+      padding:28px;
+      border-radius:12px;
+      background: linear-gradient(180deg, rgba(0,46,91,0.98), rgba(0,46,91,0.95));
+      color:white;
+    }
+    .cta .cta-btn{
+      background: var(--dourado);
+      color: var(--azul);
+      border:none;
+      padding:12px 20px;
+      border-radius:999px;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:12px;
+    }
+    .cta .cta-btn:hover{ filter:brightness(.95); transform: translateY(-2px); }
+
+    /* Rodapé */
+    footer{ 
+      background:var(--azul);
+      color:white;
+      padding:18px 10px;
+      text-align:center;
+      margin-top:36px;
+      font-size:14px;
     }
 
-    footer {
-      background-color: var(--azul);
-      color: white;
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 768px) {
-      header h1 { font-size: 2.2rem; }
-      .parceiros ul { flex-direction: column; align-items: center; }
+    /* Responsivo */
+    @media (max-width:700px){
+      header.site-header{ padding:12px; }
+      header.site-header h1{ font-size:18px; }
+      .hero{ padding:20px; }
+      .cta{ padding:20px; }
+      header.site-header img.logo{ height:48px; }
     }
   </style>
 </head>
 <body>
-  <header>
+  <!-- Cabeçalho com logo à esquerda; coloque o arquivo logo-ewd.jpg na mesma pasta -->
+  <header class="site-header" role="banner">
+    <img class="logo" src="logo-ewd.jpg" alt="EWD Investimentos - logo" />
     <h1>EWD Investimentos</h1>
-    <p>Gestão de patrimônio e consultoria financeira com foco em excelência e transparência.</p>
   </header>
 
-  <section>
-    <p class="destaque">
-      O modelo de gestão patrimonial mais eficiente do mundo, agora com atendimento exclusivo para você.
-    </p>
-    <p style="text-align:center; max-width:800px; margin:auto;">
-      Na <strong>EWD Investimentos</strong>, atuamos como um verdadeiro Family Office — com soluções sob medida, alinhamento de interesses e uma gestão focada em resultados consistentes e de longo prazo.
-    </p>
-  </section>
+  <main class="container" role="main">
+    <section class="hero" aria-label="Apresentação">
+      <p class="lead">O modelo de gestão de patrimônio mais bem-sucedido no mundo, agora disponível para você.</p>
+      <p>Na <strong>EWD Investimentos</strong>, oferecemos uma abordagem personalizada para atender aos seus objetivos financeiros, com transparência e alinhamento total aos seus interesses. Soluções sob medida — foco em preservação e crescimento de patrimônio.</p>
+    </section>
 
-  <section class="parceiros">
-    <h2>Parceiros</h2>
-    <ul>
-      <li>BTG Pactual</li>
-      <li>XP Investimentos</li>
-      <li>Warren</li>
-      <li>Avenue</li>
-      <li>Interactive Brokers</li>
-    </ul>
-  </section>
+    <section class="card parceiros" aria-label="Parceiros">
+      <h2 style="margin-top:0;color:#002e5b;">Parceiros</h2>
+      <ul>
+        <li>BTG Pactual</li>
+        <li>XP Investimentos</li>
+        <li>Warren</li>
+        <li>Avenue</li>
+        <li>Interactive Brokers</li>
+      </ul>
+    </section>
 
-  <section class="faq">
-    <h2>Perguntas Frequentes</h2>
-    <p>
-      <strong>Qual o valor mínimo para ser cliente?</strong><br />
-      Atendemos investidores com patrimônio a partir de R$ 100.000,00.
-    </p>
-    <p>
-      <strong>Como é feita a cobrança?</strong><br />
-      Cobramos uma taxa mensal baseada no valor atual da sua carteira, garantindo total alinhamento entre nossos interesses e os seus.
-    </p>
-    <p>
-      <strong>Preciso sair da minha assessoria atual?</strong><br />
-      Sim. Nosso modelo é exclusivo e visa uma relação direta e independente, com atendimento personalizado.
-    </p>
-  </section>
+    <section class="card faq" aria-label="Perguntas Frequentes">
+      <h2 style="margin-top:0;color:#002e5b;">Perguntas Frequentes</h2>
+      <p><strong>Qual o valor mínimo para ser cliente?</strong><br/>Atendemos clientes com patrimônio a partir de R$ 100.000,00.</p>
+      <p><strong>Como é feita a cobrança?</strong><br/>Cobramos uma taxa mensal baseada no valor atual da sua carteira, alinhando nossos interesses aos seus.</p>
+      <p><strong>Preciso sair da minha assessoria atual?</strong><br/>Sim — nosso modelo exige relação direta para garantir atendimento exclusivo.</p>
+    </section>
 
-  <section class="formulario">
-    <h2>Agende sua Consultoria</h2>
-    <p style="text-align:center;">Preencha o formulário e entraremos em contato para uma reunião personalizada.</p>
-    <form action="https://formspree.io/f/xgvkgdzw" method="POST">
-      <input type="text" name="nome" placeholder="Seu nome completo" required />
-      <input type="email" name="email" placeholder="Seu e-mail" required />
-      <input type="tel" name="telefone" placeholder="Seu telefone" required />
-      <textarea name="mensagem" rows="4" placeholder="Mensagem ou dúvida (opcional)"></textarea>
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
+    <section class="card formulario" aria-label="Formulário de contato">
+      <h2 style="margin-top:0;color:#002e5b;">Agende sua Consultoria</h2>
+      <p>Preencha o formulário abaixo e entraremos em contato para agendar uma reunião personalizada.</p>
+      <form action="https://formspree.io/f/xgvkgdzw" method="POST" novalidate>
+        <input type="text" name="nome" placeholder="Seu nome completo" required />
+        <input type="email" name="email" placeholder="Seu e-mail" required />
+        <input type="tel" name="telefone" placeholder="Seu telefone" required />
+        <textarea name="mensagem" rows="4" placeholder="Mensagem ou dúvida (opcional)"></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
 
-  <section class="cta">
-    <h2>Pronto para transformar a gestão do seu patrimônio?</h2>
-    <p>Agende uma consultoria gratuita e descubra o poder de uma gestão realmente personalizada.</p>
-    <button onclick="document.querySelector('.formulario').scrollIntoView({ behavior: 'smooth' });">
-      Agendar Consultoria
-    </button>
-  </section>
+    <section class="cta" aria-label="Chamada para ação">
+      <h2 style="margin:0;font-size:1.15rem;">Pronto para transformar a gestão do seu patrimônio?</h2>
+      <p style="opacity:.95;margin:8px 0 0;">Agende uma consultoria gratuita e descubra o poder de uma gestão realmente personalizada.</p>
+      <button class="cta-btn" onclick="document.querySelector('.formulario form').scrollIntoView({behavior:'smooth'});">Agendar Consultoria</button>
+    </section>
+  </main>
 
-  <footer>
-    <p>&copy; 2025 EWD Investimentos. Todos os direitos reservados.</p>
-    <p>Política de Privacidade | Termos de Uso | Contato: ewdinvestimentos@hotmail.com</p>
+  <footer role="contentinfo">
+    <div>&copy; 2025 EWD Investimentos. Todos os direitos reservados.</div>
+    <div style="opacity:.9;margin-top:6px;">Política de Privacidade | Termos de Uso | Contato: ewdparticipacoes@hotmail.com</div>
   </footer>
 </body>
 </html>
