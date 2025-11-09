@@ -5,80 +5,129 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EWD Investimentos</title>
   <style>
+    :root {
+      --azul: #002e5b;
+      --dourado: #d4af37;
+      --cinza-fundo: #f9f9f9;
+    }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f5f5;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--cinza-fundo);
       color: #333;
+      line-height: 1.6;
     }
+
     header {
-      background-color: #002e5b;
+      background-color: var(--azul);
       color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+      text-align: center;
+      padding: 5rem 2rem 6rem;
+      background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1508385082359-f38ae991e8f2?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
     }
-    header img {
-      height: 60px;
-      width: auto;
-    }
+
     header h1 {
-      margin: 0;
-      font-size: 1.8rem;
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
     }
+
     header p {
-      margin: 0;
-      font-size: 1rem;
-      color: #cdd7e0;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto;
+      color: #ddd;
     }
+
     section {
-      padding: 2rem;
+      padding: 3rem 2rem;
       max-width: 1000px;
       margin: auto;
     }
+
     .destaque {
-      font-size: 1.5rem;
-      margin: 1rem 0;
-      color: #002e5b;
+      font-size: 1.6rem;
+      color: var(--azul);
+      text-align: center;
+      margin: 2rem 0;
     }
+
     .numeros,
     .parceiros,
     .faq,
-    .depoimentos,
     .formulario {
       background: white;
       margin: 2rem 0;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
     }
-    .numeros ul,
+
+    .parceiros h2,
+    .faq h2,
+    .formulario h2,
+    .cta h2 {
+      color: var(--azul);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
     .parceiros ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       list-style: none;
       padding: 0;
+      gap: 1.5rem;
     }
-    .numeros li,
+
     .parceiros li {
-      margin: 0.5rem 0;
+      font-weight: 600;
+      color: var(--azul);
+      background: #f2f2f2;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
     }
+
+    .faq p {
+      margin-bottom: 1.5rem;
+    }
+
+    .faq strong {
+      color: var(--azul);
+    }
+
     .cta {
       text-align: center;
-      margin: 3rem 0;
-    }
-    .cta button {
-      background-color: #007bff;
+      background-color: var(--azul);
       color: white;
-      padding: 1rem 2rem;
-      font-size: 1rem;
+      padding: 3rem 2rem;
+      border-radius: 12px;
+      margin-top: 3rem;
+    }
+
+    .cta button {
+      background-color: var(--dourado);
+      color: var(--azul);
+      font-weight: bold;
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
       border: none;
-      border-radius: 5px;
+      border-radius: 50px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
     }
+
     .cta button:hover {
-      background-color: #0056b3;
+      background-color: #b9962f;
+      transform: translateY(-2px);
     }
+
     .formulario form {
       display: flex;
       flex-direction: column;
@@ -86,6 +135,7 @@
       max-width: 600px;
       margin: auto;
     }
+
     .formulario input,
     .formulario textarea {
       padding: 1rem;
@@ -94,14 +144,16 @@
       font-size: 1rem;
       transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
+
     .formulario input:focus,
     .formulario textarea:focus {
-      border-color: #007bff;
-      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+      border-color: var(--dourado);
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
       outline: none;
     }
+
     .formulario button {
-      background-color: #28a745;
+      background-color: var(--azul);
       color: white;
       padding: 1rem;
       font-size: 1rem;
@@ -110,32 +162,37 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
+
     .formulario button:hover {
-      background-color: #218838;
+      background-color: #01407e;
     }
+
     footer {
-      background-color: #002e5b;
+      background-color: var(--azul);
       color: white;
       text-align: center;
-      padding: 1rem;
+      padding: 2rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.2rem; }
+      .parceiros ul { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="Screenshot_20251108_164219_WhatsApp.jpg" alt="Logo EWD Investimentos" />
-    <div>
-      <h1>EWD Investimentos</h1>
-      <p>Consultoria de Investimentos e Gestão de Patrimônio Personalizada</p>
-    </div>
+    <h1>EWD Investimentos</h1>
+    <p>Gestão de patrimônio e consultoria financeira com foco em excelência e transparência.</p>
   </header>
 
   <section>
     <p class="destaque">
-      O modelo de gestão de patrimônio mais bem-sucedido no mundo, agora disponível para você.
+      O modelo de gestão patrimonial mais eficiente do mundo, agora com atendimento exclusivo para você.
     </p>
-    <p>
-      Na <strong>EWD Investimentos</strong>, oferecemos uma abordagem personalizada para atender aos seus objetivos financeiros, com transparência e alinhamento total aos seus interesses.
+    <p style="text-align:center; max-width:800px; margin:auto;">
+      Na <strong>EWD Investimentos</strong>, atuamos como um verdadeiro Family Office — com soluções sob medida, alinhamento de interesses e uma gestão focada em resultados consistentes e de longo prazo.
     </p>
   </section>
 
@@ -154,21 +211,21 @@
     <h2>Perguntas Frequentes</h2>
     <p>
       <strong>Qual o valor mínimo para ser cliente?</strong><br />
-      Atendemos clientes com investimentos a partir de R$ 100.000,00.
+      Atendemos investidores com patrimônio a partir de R$ 100.000,00.
     </p>
     <p>
       <strong>Como é feita a cobrança?</strong><br />
-      Cobramos uma taxa mensal baseada no valor atual da sua carteira, alinhando nossos interesses aos seus.
+      Cobramos uma taxa mensal baseada no valor atual da sua carteira, garantindo total alinhamento entre nossos interesses e os seus.
     </p>
     <p>
       <strong>Preciso sair da minha assessoria atual?</strong><br />
-      Sim, para garantir um atendimento exclusivo e alinhado, é necessário migrar para a EWD Investimentos.
+      Sim. Nosso modelo é exclusivo e visa uma relação direta e independente, com atendimento personalizado.
     </p>
   </section>
 
   <section class="formulario">
     <h2>Agende sua Consultoria</h2>
-    <p>Preencha o formulário abaixo e entraremos em contato para agendar uma reunião personalizada.</p>
+    <p style="text-align:center;">Preencha o formulário e entraremos em contato para uma reunião personalizada.</p>
     <form action="https://formspree.io/f/xgvkgdzw" method="POST">
       <input type="text" name="nome" placeholder="Seu nome completo" required />
       <input type="email" name="email" placeholder="Seu e-mail" required />
@@ -180,7 +237,7 @@
 
   <section class="cta">
     <h2>Pronto para transformar a gestão do seu patrimônio?</h2>
-    <p>Agende uma consultoria gratuita com nossos especialistas.</p>
+    <p>Agende uma consultoria gratuita e descubra o poder de uma gestão realmente personalizada.</p>
     <button onclick="document.querySelector('.formulario').scrollIntoView({ behavior: 'smooth' });">
       Agendar Consultoria
     </button>
@@ -188,7 +245,7 @@
 
   <footer>
     <p>&copy; 2025 EWD Investimentos. Todos os direitos reservados.</p>
-    <p>Política de Privacidade | Termos de Uso | Contato: ewdparticipacoes@hotmail.com</p>
+    <p>Política de Privacidade | Termos de Uso | Contato: ewdinvestimentos@hotmail.com</p>
   </footer>
 </body>
 </html>
